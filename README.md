@@ -1,5 +1,7 @@
 # live-coding-session
 
+# 🚀 Access the app: [livecode.jfservice.id.vn](https://livecode.jfservice.id.vn)
+
 An API for creating live coding sessions, saving source code, queueing executions, and running user code inside isolated Docker sandboxes.
 
 ## What It Does
@@ -8,6 +10,7 @@ The service exposes a small HTTP API backed by PostgreSQL, Redis, BullMQ, and Do
 
 - PostgreSQL stores coding sessions and execution records.
 - Redis stores the BullMQ queue used to process execution jobs.
+- Caddy works as a reverse proxy and automatically manages HTTPS certificates.
 - The API server creates sessions, updates source code, and enqueues runs.
 - A background worker consumes execution jobs and launches short-lived Docker containers.
 - Each sandbox container gets the submitted source code, runs it with the selected language runtime, and returns stdout, stderr, exit code, and duration.
@@ -44,6 +47,7 @@ That starts:
 - PostgreSQL on `127.0.0.1:5432`
 - Redis on `127.0.0.1:6379`
 - The API server on `127.0.0.1:3000`
+- Caddy as the public reverse proxy with automatic HTTPS certificate provisioning and renewal
 
 Once the containers are up, open `http://localhost:3000/openapi`.
 
@@ -103,8 +107,6 @@ The current sandbox mapping supports:
 
 - `python` -> `python:3.14-alpine`
 - `javascript` -> `node:20-alpine`
-- `java` -> `eclipse-temurin:21-jre-alpine`
-- `c` -> `gcc:14-trixie`
 
 ## Database Schema
 
