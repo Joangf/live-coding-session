@@ -17,6 +17,10 @@ The service exposes a small HTTP API backed by PostgreSQL, Redis, BullMQ, and Do
 
 OpenAPI documentation is available at `/openapi` after the server starts.
 
+## Documentation
+
+- [System Design](./DESIGN.md)
+
 ## Requirements
 
 - Docker Desktop or a compatible Docker daemon
