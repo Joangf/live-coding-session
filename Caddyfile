@@ -1,0 +1,3 @@
+livecode.jfservice.id.vn {
+  reverse_proxy api:3000
+}

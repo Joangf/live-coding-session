@@ -56,16 +56,6 @@ const LANGUAGE_RUNTIME_MAP: Record<string, LanguageRuntime> = {
     fileName: 'main.js',
     executeCommand: 'node /workspace/main.js',
   },
-  java: {
-    image: 'eclipse-temurin:21-jre-alpine',
-    fileName: 'Main.java',
-    executeCommand: 'java /workspace/Main.java"',
-  },
-  c: {
-    image: 'gcc:14-trixie',
-    fileName: 'main.c',
-    executeCommand: 'gcc /workspace/main.c -o /workspace/main && /workspace/main',
-  }
 }
 const imagePullCache = new Set<string>()
 
